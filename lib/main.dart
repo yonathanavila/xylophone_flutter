@@ -13,6 +13,26 @@ class MyApp extends StatelessWidget {
     player.play(AssetSource('note$sound.wav'));
   }
 
+  Expanded buildKey({int sound = 1, Color color = Colors.black12}) {
+    return Expanded(
+      child: TextButton(
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(0),
+              side: BorderSide(color: color),
+            ),
+          ),
+          backgroundColor: MaterialStateProperty.all(color),
+        ),
+        onPressed: () {
+          playSound(sound);
+        },
+        child: Text(''),
+      ),
+    );
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -28,125 +48,13 @@ class MyApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
-                child: TextButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0),
-                        side: const BorderSide(color: Colors.black),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(Colors.red),
-                  ),
-                  onPressed: () {
-                    playSound(1);
-                  },
-                  child: Text(''),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0),
-                        side: const BorderSide(color: Colors.black),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(Colors.orange),
-                  ),
-                  onPressed: () {
-                    playSound(2);
-                  },
-                  child: Text(''),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0),
-                        side: const BorderSide(color: Colors.black),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(Colors.yellow),
-                  ),
-                  onPressed: () {
-                    playSound(3);
-                  },
-                  child: Text(''),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0),
-                        side: const BorderSide(color: Colors.black),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(Colors.green),
-                  ),
-                  onPressed: () {
-                    playSound(4);
-                  },
-                  child: Text(''),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0),
-                        side: const BorderSide(color: Colors.black),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(Colors.teal),
-                  ),
-                  onPressed: () {
-                    playSound(5);
-                  },
-                  child: Text(''),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0),
-                        side: const BorderSide(color: Colors.black),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
-                  onPressed: () {
-                    playSound(6);
-                  },
-                  child: Text(''),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.zero,
-                        side: const BorderSide(color: Colors.black),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(Colors.purple),
-                  ),
-                  onPressed: () {
-                    playSound(7);
-                  },
-                  child: Text(''),
-                ),
-              ),
+              buildKey(sound: 1, color: Colors.red),
+              buildKey(sound: 2, color: Colors.orange),
+              buildKey(sound: 3, color: Colors.yellow),
+              buildKey(sound: 4, color: Colors.green),
+              buildKey(sound: 5, color: Colors.teal),
+              buildKey(sound: 6, color: Colors.blue),
+              buildKey(sound: 7, color: Colors.purple),
             ],
           ),
         ),
