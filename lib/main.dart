@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         onPressed: () {
           playSound(sound);
         },
-        child: Text(''),
+        child: const Text(''),
       ),
     );
   }
