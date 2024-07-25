@@ -15,13 +15,13 @@ class MyApp extends StatelessWidget {
     return Expanded(
       child: TextButton(
         style: ButtonStyle(
-          shape: MaterialStateProperty.all(
+          shape: WidgetStateProperty.all(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(0),
               side: BorderSide(color: color),
             ),
           ),
-          backgroundColor: MaterialStateProperty.all(color),
+          backgroundColor: WidgetStateProperty.all(color),
         ),
         onPressed: () {
           playSound(sound);
